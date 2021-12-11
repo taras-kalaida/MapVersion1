@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'LastVersionDjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mapdb',
-        "PASSWORD": "Taras679",
-        "USER": "postgres",
-        "HOST": "localhost",
-        "PORT": "5432"
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
 
