@@ -78,7 +78,11 @@ WSGI_APPLICATION = 'LastVersionDjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'mapdb',
+        "PASSWORD": "Taras679",
+        "USER": "postgres",
+        "HOST": "localhost",
+        "PORT": "5432"
     }
 }
 
@@ -118,9 +122,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [join(BASE_DIR, "static")]
 
-MEDIA_URL = "/media/"
+
 
 MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
