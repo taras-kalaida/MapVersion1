@@ -1,0 +1,7 @@
+{"name": "map",
+"description": "Map app",
+"version": "0.0.1",
+"private": true,
+"dependencies": {
+"ol": ""}
+}
