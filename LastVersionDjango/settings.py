@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "About.apps.AboutConfig",
     'ShowMap.apps.ShowmapConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,8 +118,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [join(BASE_DIR, "static")]
-
-
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
