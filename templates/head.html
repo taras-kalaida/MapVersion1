@@ -1,9 +1,18 @@
 {% load static %}
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css" type="text/css">
-  <style> .map { height: 400px; width: 100%; } </style>
-  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
-  <title>OpenLayers example</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css"
+          type="text/css">
+    <style> .map {
+        height: 400px;
+        width: 100%;
+    } </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static "css/full.css" %}">
+    <link rel="stylesheet" href="{% static path %}">
+
+
 </head>

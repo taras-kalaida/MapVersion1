@@ -4,4 +4,4 @@ from django.views import View
 
 class ShowMap(MixinViews, View):
     template = "map.html"
-    context = {"path": "map.css", "title": "Map"}
+    context = {"path": "css/map.css", "title": "Map"}
