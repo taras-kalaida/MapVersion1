@@ -3,6 +3,7 @@ L.Circle.include({
     return this.getLatLng().distanceTo(latLng) < this.getRadius();
   }
 });
+let mark1,markArr=[],marker1,circle1,backToPoint=0,markerC,circleC,backToPointC;;
 function StartMap(){
         let map = L.map('map',{
             maxZoom:20,//16
@@ -27,7 +28,6 @@ function GetPosition(){
         },5000);
     }
 }
-let marker1,circle1,backToPoint=0,markerC,circleC,backToPointC;
 function CurrentPositionOnMap(position){
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
@@ -49,11 +49,11 @@ function CurrentPositionOnMap(position){
             backToPoint=1;
     }
 }
-let mark1,markArr=[];
+
 function AddMarkerAround(){
     if(markArr){
         for(let i of markArr){
-            console.log(map.removeLayer(i))
+            (map.removeLayer(i))
         }
         markArr=[];
     }
