@@ -1,6 +1,13 @@
 {% extends "body.html" %}
+
 {% load static %}
-{% block all  %}
+{% block all %}
+
+    <script >
+        var arr ='{{ data | safe }}'
+    </script>
     <div id="map"></div>
-    <script src="{% static 'js/map.js' %}"></script>
+
+    <script src="{% static "js/map.js" %}"></script>
+
 {% endblock all %}

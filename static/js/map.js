@@ -1,50 +1,52 @@
-navigator.geolocation.getCurrentPosition(
-    function (position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        Init(latitude, longitude);
-    }
-);
 
-function Init(latitude, longitude) {
-    const CurentPosition = [longitude, latitude]
-    const Kiev = [30.523132, 50.449279];
-
-    function StartMap(){
-        let map = L.map('map').setView([50.449279, 30.523132], 20);
+function StartMap(){
+        let map = L.map('map',{
+            maxZoom:16,
+            minZoom:10
+        }).setView([0, 0], 16);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+        console.log(map)
         return map;
     }
+    let map = StartMap();
+    console.log(map)
+GetPosition();
 
 
-    function AddMarker(map){
-        var myIcon = L.icon({
-    iconUrl: '/static/js/finish_icon_1.png',
-    iconSize: [50, 95],
-    iconAnchor: [22, 94],
-    popupAnchor: [-3, -76]
-});
+function GetPosition(){
 
-let mark = L.marker([50.449279, 30.523132], {icon: myIcon}).addTo(map)
-         .bindPopup("<h1>Taras</h1><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus est, eum facere facilis illo ipsam iste maiores officia optio quam quibusdam quidem, sed soluta. Aperiam eveniet modi praesentium saepe sapiente.<img style='height: 200px;width: 300px' src='/static/js/kafedralnyj-sobor.jpg' > ")
+    if(!navigator.geolocation){
+        alert("Your browser dosent support geolocation")
+    }else{
+        navigator.geolocation.getCurrentPosition(CurrentPositionOnMap)
+        setInterval(()=>{
+             navigator.geolocation.getCurrentPosition(CurrentPositionOnMap)
+        },5000);
+    }
+}
+let marker1,circle1,backToPoint=0;
+function CurrentPositionOnMap(position){
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    let accuracy = position.coords.accuracy;
 
+    if(marker1){
+        map.removeLayer(marker1)
     }
 
+    if(circle1){
+        map.removeLayer(circle1)
+    }
 
-    function AddCircle(map){
-        var circle = L.circle([50.449279, 30.523132], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.1,
-            radius: 500
-        }).addTo(map);
-        }
-    let map = StartMap();
-    AddMarker(map);
-    AddCircle(map);
-
-
+      marker1 = L.marker([lat, long])
+      circle1 = L.circle([lat,long],{radius:500})
+    let PersonPositionGrup = L.featureGroup([marker1,circle1]).addTo(map)
+    if (backToPoint==0){
+            map.fitBounds(PersonPositionGrup.getBounds())
+            backToPoint=1;
+    }
+     console.log(lat, long)
 }
