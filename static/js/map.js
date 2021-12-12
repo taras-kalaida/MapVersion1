@@ -1,5 +1,14 @@
-for(let i of JSON.parse(arr)){
-    console.log(i.fields['title'])
+navigator.geolocation.getCurrentPosition(
+    function (position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        Init(latitude, longitude);
+    }
+);
+
+function Init(latitude, longitude) {
+    const CurentPosition = [longitude, latitude]
+    const Kiev = [30.523132, 50.449279];
 
     function StartMap(){
         let map = L.map('map').setView([50.449279, 30.523132], 20);
@@ -21,8 +30,20 @@ for(let i of JSON.parse(arr)){
 
 let mark = L.marker([50.449279, 30.523132], {icon: myIcon}).addTo(map)
          .bindPopup("<h1>Taras</h1><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus est, eum facere facilis illo ipsam iste maiores officia optio quam quibusdam quidem, sed soluta. Aperiam eveniet modi praesentium saepe sapiente.<img style='height: 200px;width: 300px' src='/static/js/kafedralnyj-sobor.jpg' > ")
+        var myIcon = L.icon({
+    iconUrl: '/static/js/man.png',
+    iconSize: [50, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76]
+});
+
+let mark1 = L.marker([50.449279, 30.529140], {
+    icon: myIcon,
+    draggable: true
+        }).addTo(map).bindPopup("<h1>Taras</h1><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus est, eum facere facilis illo ipsam iste maiores officia optio quam quibusdam quidem, sed soluta. Aperiam eveniet modi praesentium saepe sapiente.<img style='height: 200px;width: 300px' src='/static/js/kafedralnyj-sobor.jpg' > ")
 
     }
+
 
 
     function AddCircle(map){
@@ -36,6 +57,7 @@ let mark = L.marker([50.449279, 30.523132], {icon: myIcon}).addTo(map)
     let map = StartMap();
     AddMarker(map);
     AddCircle(map);
+
 
 
 }
