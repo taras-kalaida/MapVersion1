@@ -1,13 +1,19 @@
 from django.db import models
+from django.shortcuts import reverse
 
 
 class Category(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     name = models.CharField(max_length=50, unique=True)
-    slug = models.PositiveIntegerField(unique=True)
+    slug = models.CharField(max_length=50, unique=True)
+    icon = models.FileField(upload_to="images/monuments_icon")
 
     def __str__(self):
         return self.name
+
+    def get_url(self):
+        return reverse("show_category_map", kwargs={"slug": self.slug})
+
 
 class Monument(models.Model):
     id = models.AutoField(primary_key=True, unique=True, )
@@ -16,11 +22,10 @@ class Monument(models.Model):
     image = models.ImageField(upload_to="images/monuments_image")
     wiki = models.CharField(max_length=100)
     slug = models.PositiveIntegerField(unique=True)
-    longtitude = models.IntegerField(blank=False)
-    latitude = models.IntegerField(blank=False)
+    longtitude = models.FloatField(blank=False)
+    latitude = models.FloatField(blank=False)
     icon = models.FileField(upload_to="images/monuments_icon")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, related_name="category")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, related_name="category", )
 
     def __str__(self):
         return self.title
-print(Monument.__dict__)
