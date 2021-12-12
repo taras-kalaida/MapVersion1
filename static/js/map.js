@@ -1,20 +1,18 @@
 
 function StartMap(){
         let map = L.map('map',{
-            maxZoom:16,
-            minZoom:10
-        }).setView([0, 0], 16);
+            maxZoom:20,//16
+            minZoom:2//10
+        }).setView([0, 0], 2);//16
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        console.log(map)
         return map;
     }
     let map = StartMap();
-    console.log(map)
-GetPosition();
-
+//GetPosition();
+AddMarkerAround();
 
 function GetPosition(){
 
@@ -49,4 +47,28 @@ function CurrentPositionOnMap(position){
             backToPoint=1;
     }
      console.log(lat, long)
+}
+function AddMarkerAround(){
+    for (let i of JSON.parse(arr)){
+        let title ="" + i.fields.title;
+        let lat =  i.fields.latitude;
+        let long =  i.fields.longtitude;
+        let description = i.fields.description;
+        let image ="media/" + i.fields.image;
+        let wiki = i.fields.wiki;
+        let icon ="media/" + i.fields.icon;
+        console.log(icon);
+
+        var myIcon = L.icon({
+        iconUrl: `${icon}`,
+        iconSize: [50, 95],
+        iconAnchor: [22, 94],
+        popupAnchor: [-3, -76]
+        });
+
+        let mark1 = L.marker([lat, long], {
+        icon: myIcon,
+        }).addTo(map).bindPopup(`<h1>${title}</h1><br>${description}<br>Sours:<a href=${wiki}>link</a><img style='height: 200px;width: 300px' src=${image}> `)
+
+    }
 }
