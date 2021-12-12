@@ -1,14 +1,5 @@
-navigator.geolocation.getCurrentPosition(
-    function (position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        Init(latitude, longitude);
-    }
-);
-
-function Init(latitude, longitude) {
-    const CurentPosition = [longitude, latitude]
-    const Kiev = [30.523132, 50.449279];
+for(let i of JSON.parse(arr)){
+    console.log(i.fields['title'])
 
     function StartMap(){
         let map = L.map('map').setView([50.449279, 30.523132], 20);
