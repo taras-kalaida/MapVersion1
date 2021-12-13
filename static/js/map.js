@@ -1,4 +1,4 @@
-
+console.log(arr)
 L.Circle.include({
   contains: function (latLng) {
     return this.getLatLng().distanceTo(latLng) < this.getRadius();
