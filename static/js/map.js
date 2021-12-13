@@ -1,4 +1,4 @@
-console.log(arr)
+
 L.Circle.include({
   contains: function (latLng) {
     return this.getLatLng().distanceTo(latLng) < this.getRadius();
@@ -130,26 +130,80 @@ function MouseMapChek(){
     });
 
 }
-L.easyButton('<img src=/static/js/loc.png>', function(btn, map){
+// L.easyButton('fa-usd', function(btn, map){
+//
+//     if(allmark){
+//         allmark =0;
+//     }else{
+//         allmark=1;
+//         if(circleC){
+//                   map.removeLayer(circleC);
+//         }
+//
+//     }
+//     AddMarkerAround();
+// }).addTo(map);
+// L.easyButton('fa-map-marker', function(btn, map){
+//     if(geoWatch){
+//         geoWatch=0;
+//     }else{
+//         geoWatch=1
+//     }
+// GetPosition();
+// }).addTo(map);
 
-    if(allmark){
-        allmark =0;
-    }else{
+//icon first
+let GeoBTN = L.easyButton({
+  states: [{
+    stateName: 'OnGeo',
+    icon: '<img src="/static/images/footer_icons/ioc.png" style="width: 25px;height: 25px;display: block;margin:2px 0 0 3px;">',
+    title: 'on geolocation',
+    onClick: function(control) {
+      geoWatch=1;
+      GetPosition();
+      control.state('offGeo');
+    }
+  }, {
+    icon: '<img src="/static/images/footer_icons/1.png" style="width: 25px;height: 25px;display: block;margin:2px 0 0 3px;">',
+    stateName: 'offGeo',
+    onClick: function(control) {
+        geoWatch=0;
+      GetPosition();
+      control.state('OnGeo');
+    },
+    title: 'off geolocation'
+  }]
+});
+GeoBTN.addTo(map);
+
+//icon low
+
+let toggle = L.easyButton({
+  states: [{
+    stateName: 'OnAllMark',
+    icon: '<span>All',
+    title: 'on all mark on map',
+    onClick: function(control) {
         allmark=1;
         if(circleC){
                   map.removeLayer(circleC);
         }
+        AddMarkerAround();
+      control.state('offAllMark');
+    }
+  }, {
+    icon: '<span>Reg',
+    stateName: 'offAllMark',
+    onClick: function(control) {
+        allmark=0;
+      GetPosition();
+      AddMarkerAround();
+      control.state('OnAllMark');
+    },
+    title: 'off all mark on map'
+  }]
+});
+toggle.addTo(map);
 
-    }
-    AddMarkerAround();
-}).addTo(map);
-L.easyButton('fa-globe', function(btn, map){
-    if(geoWatch){
-        geoWatch=0;
-    }else{
-        geoWatch=1
-    }
-GetPosition();
-}).addTo(map);
 MouseMapChek();
 Test()
