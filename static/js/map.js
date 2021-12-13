@@ -98,6 +98,11 @@ function AddMarkerAround(){
         }
     }
 }
+function Test(){
+  markerC = L.marker([50.45018113913906, 30.52439689636231]).addTo(map);
+  circleC = L.circle([50.45018113913906, 30.52439689636231],{radius:500}).addTo(map);
+  AddMarkerAround();
+}
 function MouseMapChek(){
         map.on('click', function(ev) {
             console.log(ev.latlng.lat);
@@ -146,6 +151,5 @@ L.easyButton('fa-globe', function(btn, map){
     }
 GetPosition();
 }).addTo(map);
-
-
 MouseMapChek();
+Test()
