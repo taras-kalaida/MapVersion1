@@ -136,3 +136,16 @@ GitHub.sublime-settings
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
+/ShowMap/migrations/0001_initial.py
+/ShowMap/migrations/0002_monuments_latitude_monuments_longtitude.py
+/ShowMap/migrations/0003_monument_delete_monuments.py
+/ShowMap/migrations/0004_alter_monument_icon.py
+/ShowMap/migrations/0005_category_monument_category.py
+/ShowMap/migrations/0006_alter_monument_id.py
+/ShowMap/migrations/0007_alter_category_id_alter_category_slug.py
+/ShowMap/migrations/0008_alter_category_slug_alter_monument_slug.py
+/ShowMap/migrations/0009_alter_category_slug.py
+/ShowMap/migrations/0010_category_icon.py
+/ShowMap/migrations/0011_alter_category_slug.py
+/ShowMap/migrations/0012_alter_monument_latitude_alter_monument_longtitude.py
+/ShowMap/migrations/__init__.py
