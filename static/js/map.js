@@ -152,7 +152,7 @@ function MouseMapChek(){
 // GetPosition();
 // }).addTo(map);
 
-
+//icon first
 let GeoBTN = L.easyButton({
   states: [{
     stateName: 'OnGeo',
@@ -176,7 +176,7 @@ let GeoBTN = L.easyButton({
 });
 GeoBTN.addTo(map);
 
-
+//icon low
 
 let toggle = L.easyButton({
   states: [{
