@@ -1,5 +1,7 @@
 #map {
-    margin-top:20px;
-    height: 800px;
-position: relative;
-z-index: 0}
+    display: block;
+    margin: 10%  auto 30px auto;
+    width: 1200px;
+    height: 670px;
+    position: relative;
+    z-index: 0}
