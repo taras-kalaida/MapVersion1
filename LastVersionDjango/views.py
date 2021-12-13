@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 
 
+# Mixin class для всех views.py
 class MixinViews:
     template = None
     context = None
@@ -10,6 +11,7 @@ class MixinViews:
         return render(request, self.template, self.context)
 
 
+# Mixin class для ShowCategoryMap
 class MixinNeededView:
     template = None
     context = None

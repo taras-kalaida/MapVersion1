@@ -2,6 +2,7 @@ from django.db import models
 from django.shortcuts import reverse
 
 
+# Модель категорий
 class Category(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     name = models.CharField(max_length=50, unique=True)
@@ -15,6 +16,7 @@ class Category(models.Model):
         return reverse("show_category_map", kwargs={"slug": self.slug})
 
 
+# Модель памяток
 class Monument(models.Model):
     id = models.AutoField(primary_key=True, unique=True, )
     title = models.CharField(max_length=50)
