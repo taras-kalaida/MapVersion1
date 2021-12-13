@@ -51,6 +51,10 @@
 
   - requirments.txt 
 
+  - Dockerfile
+
+  - docker-compose
+
   - .gitignore  
 
   - db.sqlite3 
