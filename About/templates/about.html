@@ -1,4 +1,30 @@
 {% extends "body.html" %}
-{% block all %}
 
+{% load static %}
+{% block all %}
+    <section class="about">
+        <div id="about_container">
+            <div class="about_title">
+                <h1>Приложение для справочной информации о близлежащих обьектах на карте</h1>
+            </div>
+            <h2>Структура Сайта</h2>
+            <div class="site">
+                <ul class="site_structure">
+                    <li><span class="list_title">Главная страница</span>
+                        <ul>
+                            <li class="list_item">Карта</li>
+                            <li class="list_item">Всплывающее меню с информацией об обьекте</li>
+                            <li class="list_item">Список обьектов относительно позиции камеры</li>
+                        </ul>
+                    </li><br>
+                    <li><span class="list_title">Информация</span>
+                        <ul>
+                            <li class="list_item">Список источников данных</li>
+                            <li class="list_item">Слои карты</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 {% endblock all %}

@@ -1,3 +1,60 @@
 body{
-    background: blue;
+    background: rgb(212,212,212);
 }
+
+#about_container {
+    padding-top: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#about_container .about_title {
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 1%;
+    margin-top: 2%;
+
+}
+
+
+#about_container .site_structure {
+    font-family: 'Poiret One', cursive;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.list_item{
+    display: block;
+    padding-left: 30px;
+
+}
+.list_item::before{
+    content: "\25CF ";
+}
+
+#about_container .list_title{
+    font-size: 25px;
+    display: block;
+    margin-bottom: 5px;
+}
+.header_content {
+    display: flex;
+    justify-content: space-around;
+}
+#about_container h2{
+        font-family: 'Poiret One', cursive;
+        color: black;
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 5px;
+}
+.sosi {
+    height: 800px;
+}
+

@@ -21,6 +21,7 @@
                     </li>
                 </ul>
             </nav>
+            {% if categories != None%}
             <categories>
                 {% for i in categories %}
                     <div class="categories_div">
@@ -32,7 +33,7 @@
                     </div>
                 {% endfor %}
             </categories>
-
+            {% endif %}
             <logo style="margin-left: 4%;">
                 <h1 class="logo_h1">
                     <a href="{% url "show_map" %}" class="logo_a">MapHELP!</a>
