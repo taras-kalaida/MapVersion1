@@ -43,11 +43,12 @@ body {
 html,
 body {
     background-color: white;
-    height: 100%;
+    min-height: 100vh;
     line-height: 1;
     font-size: 14px;
     color: white;
     font-weight: 500;
+    position: relative;
 }
 
 /* ----Main------------------------------------------------------------------------ */
@@ -142,6 +143,7 @@ categories {
     width: 100%;
     justify-content: space-between;
     padding: 10px;
+    flex: 1 0 auto;
 }
 .categories_div:hover{
     opacity: 0.5;
@@ -169,8 +171,11 @@ categories {
     justify-content: space-around;
     align-items: center;
     background: black;
-    margin-top: 0;
+    margin-top: 20px;
     height: 200px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 .description {
     margin: 0 auto;
