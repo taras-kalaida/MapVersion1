@@ -2,6 +2,10 @@ body{
     background: rgb(212,212,212);
 }
 
+.about {
+    background: rgb(212,212,212);
+}
+
 #about_container {
     padding-top: 6%;
     display: flex;
@@ -48,13 +52,32 @@ body{
     justify-content: space-around;
 }
 #about_container h2{
-        font-family: 'Poiret One', cursive;
-        color: black;
-        font-size: 40px;
-        font-weight: 600;
-        margin-bottom: 5px;
+    font-family: 'Poiret One', cursive;
+    color: black;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
-.sosi {
-    height: 800px;
+.about .tutorial .about_img {
+    display: inline-block;
+    margin-right: 20px;
+    height: 468px;
+    width: 843px;
+}
+
+.site {
+    margin-bottom: 30px;
+
+}
+
+.about_container{
+    box-sizing: content-box;
+    position: relative;
+}
+
+.about .about_contauner .tutorial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
