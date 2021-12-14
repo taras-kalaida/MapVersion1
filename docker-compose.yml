@@ -1,16 +1,18 @@
-web:
-  build: .
-  environment:
-    MYENV: MAP
-  volumes:
-    - .:/map
-web_migrate:
-  extends:
-    service: web
-  command: python manage.py migrate
-web_run:
-  extends:
-    service: web
-  command: python manage.py runserver 0.0.0.0:8000
-  ports:
-    - "8000:8000"
+version: "3.8"
+
+services:
+  db:
+    image: nouchka/sqlite3:latest
+    volumes:
+      - ./data/db:/root/db
+    environment:
+      - SQLITE3_DB=db.sqlite3
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
