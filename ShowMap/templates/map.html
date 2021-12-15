@@ -6,12 +6,12 @@
     <script >
         var arr ='{{ data | safe }}'
     </script>
-<br><br><br>
-<br><br>
-<br><br>
-<br><br>
-    <div id="map"></div>
 
-    <script src="{% static 'js/map.js' %}"></script>
+        <div class="map_position">
+            <div id="map"></div>
+        </div>
+
+
+    <script src="{% static "js/map.js" %}"></script>
 
 {% endblock all %}
