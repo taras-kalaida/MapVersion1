@@ -1,12 +1,6 @@
 FROM python
-
-ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-
-RUN mkdir -p /map
-
-WORKDIR /map
-
-COPY . /map/
-
+WORKDIR /code
+COPY requirments.txt /code/
 RUN pip install -r requirments.txt
+COPY . /code/
