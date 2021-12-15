@@ -1,4 +1,43 @@
-{% extends "body.html" %}
-{% block all %}
+{% extends "index.html" %}
 
+{% load static %}
+{% block all %}
+    <section class="about">
+        <div id="about_container">
+            <div class="about_title">
+                <h1>Приложение для справочной информации о близлежащих обьектах на карте</h1>
+            </div>
+            <h2>Структура Сайта</h2>
+            <div class="site">
+                <ul class="site_structure">
+                    <li><span class="list_title">Главная страница</span>
+                        <ul>
+                            <li class="list_item">Карта</li>
+                            <li class="list_item">Всплывающее меню с информацией об обьекте</li>
+                            <li class="list_item">Список обьектов относительно позиции камеры</li>
+                        </ul>
+                    </li><br>
+                    <li><span class="list_title">Информация</span>
+                        <ul>
+                            <li class="list_item">Список источников данных</li>
+                            <li class="list_item">Слои карты</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+                <div class="tutorial">
+
+                    <div class="line" style="margin-bottom:20px;">
+                        <img src="/static/images/about_images/first_img.png" alt="First image" class="about_img scale ">
+                        <img src="/static/images/about_images/second_img.png" alt="Second image" class="about_img scale">
+                    </div>
+
+                    <div class="line" style="margin-bottom:230px;">
+                        <img src="/static/images/about_images/third_img.png" alt="Third image" class="about_img scale">
+                        <img src="/static/images/about_images/fourth_img.png" alt="fourth image" class="about_img scale">
+                    </div>
+
+                </div>
+        </div>
+    </section>
 {% endblock all %}
