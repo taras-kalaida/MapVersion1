@@ -1,3 +1,4 @@
+# ІВ-93 Калайда Тарас (<a href="https://github.com/Inspiration679">Inspiration679</a>), Кочерга Андрій(<a href="https://github.com/anrikolo">anrikolo</a>), Лінійчук Данило (<a href="https://github.com/JenyaVozduhaTochkaNet">JenyaVozduhaTochkaNet</a>)
 # Map
 
 # Описание
