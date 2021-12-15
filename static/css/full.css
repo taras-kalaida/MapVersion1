@@ -42,7 +42,7 @@ body {
 
 html,
 body {
-    background-color: white;
+    background-color: rgb(212,212,212);
     min-height: 100vh;
     line-height: 1;
     font-size: 14px;
@@ -164,15 +164,14 @@ categories {
 }
 
 .footer_content {
-    box-sizing: content-box;
     margin-bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background: black;
-    margin-top: 20px;
-    height: 200px;
+    margin-top: 30px;
+    height: 180px;
     position: absolute;
     bottom: 0;
     width: 100%;

@@ -61,8 +61,8 @@ body{
 .about .tutorial .about_img {
     display: inline-block;
     margin-right: 20px;
-    height: 468px;
-    width: 843px;
+    height: 314px;
+    width: 565px;
 }
 
 .site {
@@ -80,4 +80,10 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+.scale {
+    transition: 1s;
+   }
+.scale:hover {
+    transform: scale(1.2);
+   }
 

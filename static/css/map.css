@@ -1,7 +1,13 @@
 #map {
     display: block;
-    margin: 10%  auto 30px auto;
-    width: 1200px;
-    height: 670px;
+    margin: 10% auto 0 auto;
+    width: 1000px;
+    height: 450px;
     position: relative;
     z-index: 0}
+
+.map_positon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
