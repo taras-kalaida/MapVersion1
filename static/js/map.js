@@ -4,7 +4,7 @@ L.Circle.include({
     return this.getLatLng().distanceTo(latLng) < this.getRadius();
   }
 });
-let mark1,markArr=[],marker1,circle1,backToPoint=0,markerC,circleC,backToPointC,allmark=0,geoWatch=0;
+let mark1,markArr=[],marker1,circle1,backToPoint=0,markerC,circleC,backToPointC,allmark=0,geoWatch=0,AddMark;
 function StartMap(){
         let map = L.map('map',{
             maxZoom:16,
@@ -98,11 +98,7 @@ function AddMarkerAround(){
         }
     }
 }
-function Test(){
-  markerC = L.marker([50.45018113913906, 30.52439689636231]).addTo(map);
-  circleC = L.circle([50.45018113913906, 30.52439689636231],{radius:500}).addTo(map);
-  AddMarkerAround();
-}
+
 function MouseMapChek(){
         map.on('click', function(ev) {
             console.log(ev.latlng.lat);
@@ -129,6 +125,38 @@ function MouseMapChek(){
     AddMarkerAround();
     });
 
+}
+function ModalWindowToAddMark(){
+        console.log(markerC.getLatLng().lat);
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        modal.style.display = "block";
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+        window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+}
+
+
+function CreatNewMark(){
+    result = confirm("Добавить выбраное место на карту?");
+    if(result){
+        ModalWindowToAddMark();
+    }
+
+
+}
+
+function Test(){
+  markerC = L.marker([50.45018113913906, 30.52439689636231]).addTo(map);
+  circleC = L.circle([50.45018113913906, 30.52439689636231],{radius:500}).addTo(map);
+  AddMarkerAround();
 }
 // L.easyButton('fa-usd', function(btn, map){
 //
@@ -204,6 +232,18 @@ let toggle = L.easyButton({
   }]
 });
 toggle.addTo(map);
+
+let creatNewMark = L.easyButton({
+  states: [{
+    stateName: 'creatNewMark',
+    icon: '<span>Add',
+    title: 'creat New Mark on Map',
+    onClick: function(control) {
+        CreatNewMark();
+    }
+  }]
+});
+creatNewMark.addTo(map);
 
 MouseMapChek();
 Test()
