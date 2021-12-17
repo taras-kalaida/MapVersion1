@@ -18,12 +18,12 @@
       <div class="form_content">
           <h2>Добавить свою достопримечательность</h2>
           <form action="#" method="post" class="_form">
+                {% csrf_token %}
               <input type="text" placeholder="Название" class="form_text">
               <textarea placeholder="Описание"></textarea>
               <input type="url" placeholder="Wiki" class="form_text">
-              <input type="text" placeholder="Slug" class="form_text">
-              <input type="number" placeholder="Долгота" class="form_text" >
-              <input type="number" placeholder="Широта" class="form_text">
+              <input type="number" placeholder="Долгота" class="form_text dolgota" >
+              <input type="number" placeholder="Широта" class="form_text shirota" >
 
               <div class="upload_box">
 

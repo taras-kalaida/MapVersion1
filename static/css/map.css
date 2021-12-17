@@ -111,8 +111,15 @@ input::-webkit-inner-spin-button {
     margin-bottom:10px;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    text-align: center;
+}
+.dolgota{
+        text-align: center;
 }
 
+.shirota{
+        text-align: center;
+}
 .upload_box{
     display: flex;
     justify-content: space-around;

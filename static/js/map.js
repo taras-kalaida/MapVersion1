@@ -127,7 +127,8 @@ function MouseMapChek(){
 
 }
 function ModalWindowToAddMark(){
-        console.log(markerC.getLatLng().lat);
+       document.querySelector(".dolgota").value = markerC.getLatLng().lat;
+       document.querySelector(".shirota").value = markerC.getLatLng().lng;
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];
         modal.style.display = "block";
