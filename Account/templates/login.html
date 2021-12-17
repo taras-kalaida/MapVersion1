@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block all %}
+    <a href="{% url "show_registration" %}" class="nav_a">
+        <p class="nav_p">Регистрация</p>
+    </a>
+    <a href="{% url "show_login" %}" class="nav_a">
+        <p class="nav_p">Логин</p>
+    </a>
+    <form action="{% url "show_login" %}" method="post" id="login">
+        {% csrf_token %}
+        {{ sign_in.password }}
+        {{ sign_in.username }}
+
+        <button>Отправить</button>
+    </form>
+{% endblock all %}

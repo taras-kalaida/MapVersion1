@@ -19,20 +19,33 @@
                             <p class="nav_p">About</p>
                         </a>
                     </li>
+                    {% if not request.user.is_authenticated %}
+                        <li class="nav_item">
+                            <a href="{% url "show_login" %}" class="nav_a">
+                                <p class="nav_p">Вход</p>
+                            </a>
+                        </li>
+                    {% else %}
+                         <li class="nav_item">
+                            <a href="{% url "logout" %}" class="nav_a">
+                                <p class="nav_p">Выход</p>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
-            {% if categories != None%}
-            <categories>
-                {% for i in categories %}
-                    <div class="categories_div">
-                        <a href="{{  i.get_url }}">
-                            <img class="categories_img" src="{{ i.icon.url }}"
-                                 alt="">
-                            <p class="categories_p">{{ i.name }}</p>
-                        </a>
-                    </div>
-                {% endfor %}
-            </categories>
+            {% if categories != None %}
+                <categories>
+                    {% for i in categories %}
+                        <div class="categories_div">
+                            <a href="{{ i.get_url }}">
+                                <img class="categories_img" src="{{ i.icon.url }}"
+                                     alt="">
+                                <p class="categories_p">{{ i.name }}</p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </categories>
             {% endif %}
             <logo style="margin-left: 4%;">
                 <h1 class="logo_h1">

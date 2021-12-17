@@ -9,5 +9,7 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path("", ShowMap.as_view(), name="show_map"),
                   path("about/", include("About.urls")),
-                  path("<slug:slug>", ShowCategoryMap.as_view(), name="show_category_map")
+                  path("account/", include("Account.urls")),
+                  path("<slug:slug>", ShowCategoryMap.as_view(), name="show_category_map"),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
