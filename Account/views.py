@@ -9,7 +9,6 @@ from django.utils.decorators import method_decorator
 
 
 def authentication(user):
-    print(user.is_authenticated)
     return not user.is_authenticated
 
 
