@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Monument, Category, TestMonument
+from .models import Monument, Category, TestMonument,UserMonument
 
 
 # Регистрация модели памяток в админке
@@ -28,4 +28,12 @@ class MonumentAdmin(admin.ModelAdmin):
     list_display_links = ["title",  "id"]
     list_filter = ["category"]
     search_fields = ["title", "id"]
+    save_on_top = True
+
+@admin.register(UserMonument)
+class MonumentAdmin(admin.ModelAdmin):
+    list_display = ("id",)
+    list_display_links = ["id"]
+    list_filter = ["id"]
+    search_fields = ["id"]
     save_on_top = True

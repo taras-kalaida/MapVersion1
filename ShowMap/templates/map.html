@@ -4,6 +4,9 @@
 {% block all %}
     <script>
         var arr = '{{ data | safe }}'
+        var arr2 = '{{ custom_data|safe }}'
+        var user = {{ user }}
+
     </script>
 
     <div class="map_position">
@@ -24,7 +27,8 @@
                     <input type="url" placeholder="Wiki" class="form_text" name="wiki">
                     <input type="number" placeholder="Долгота" class="form_text dolgota" name="longtitude"
                            step="0.000000000000001">
-                    <input type="number" placeholder="Широта" class="form_text shirota" name="latitude" step="0.000000000000001">
+                    <input type="number" placeholder="Широта" class="form_text shirota" name="latitude"
+                           step="0.000000000000001">
 
                     <div class="upload_box">
                         <p><label>Выберите категорию:</label>
