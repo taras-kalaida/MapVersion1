@@ -32,7 +32,6 @@ class TestViews(TestCase):
 
     def test_show_category_mag_GET(self):
         response = self.client.get(self.show_category_map)
-        print(response.status_code)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, "map.html")
 

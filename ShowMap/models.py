@@ -32,6 +32,7 @@ class Monument(models.Model):
         return self.title
 
 
+# Модель корзины памяток юзера
 class UserMonument(models.Model):
     id = models.IntegerField(primary_key=True, unique=True)
 
@@ -39,6 +40,7 @@ class UserMonument(models.Model):
         return str(self.id)
 
 
+# Модель памяток юзера
 class TestMonument(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField(max_length=50)
