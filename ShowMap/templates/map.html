@@ -2,59 +2,44 @@
 {% load static %}
 
 {% block all %}
-    <script >
-        var arr ='{{ data | safe }}'
+    <script>
+        var arr = '{{ data | safe }}'
     </script>
 
-        <div class="map_position">
-            <div id="map"></div>
-        </div>
+    <div class="map_position">
+        <div id="map"></div>
+    </div>
     <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-      <div class="form_content">
-          <h2>Добавить свою достопримечательность</h2>
-          <form action="#" method="post" class="_form">
-                {% csrf_token %}
-              <input type="text" placeholder="Название" class="form_text">
-              <textarea placeholder="Описание"></textarea>
-              <input type="url" placeholder="Wiki" class="form_text">
-              <input type="number" placeholder="Долгота" class="form_text dolgota" >
-              <input type="number" placeholder="Широта" class="form_text shirota" >
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="form_content">
+                <h2>Добавить свою достопримечательность</h2>
+                <form action="{% url "show_map" %}" method="post" class="_form">
+                    {% csrf_token %}
 
-              <div class="upload_box">
+                    <input type="text" placeholder="Название" class="form_text" name="title">
+                    <textarea placeholder="Описание" id="description"></textarea>
+                    <input type="url" placeholder="Wiki" class="form_text" name="wiki">
+                    <input type="number" placeholder="Долгота" class="form_text dolgota" name="longtitude"
+                           step="0.000000000000001">
+                    <input type="number" placeholder="Широта" class="form_text shirota" name="latitude" step="0.000000000000001">
 
-                  <div class="upload_file" style="margin-right: 60px;">
-                    <label class="label">
-                      <i class="material-icons">attach_file</i>
-                      <span class="title">Добавить изображение</span>
-                      <input type="file">
-                    </label>
-                  </div>
+                    <div class="upload_box">
+                        <p><label>Выберите категорию:</label>
+                            <select name="test_category" id="category" style="margin-right: 60px;" size="1" class="db">
+                                <option value="Museum">Музей</option>
+                                <option value="University">Университет</option>
+                                <option value="Monument">Монумент</option>
+                                <option value="Library">Библиотека</option>
+                            </select></p>
+                    </div>
+                    <input type="submit" value="Добавить" class="submit" onclick=NewMarker()>
 
-                  <p> <label >Выберите категорию:</label>
-                      <select name="Category" id="category" style="margin-right: 60px;" size="1">
-                     <option value="Museum">Музей</option>
-                     <option value="University">Университет</option>
-                     <option value="Monument">Монумент</option>
-                     <option value="Library">Библиотека</option>
-                  </select></p>
-
-                  <div class="upload_file">
-                    <label class="label">
-                      <i class="material-icons">attach_file</i>
-                      <span class="title">Добавить иконку</span>
-                      <input type="file">
-                    </label>
-                  </div>
-              </div>
-              <input type="submit" value="Добавить" class="submit">
-
-          </form>
-      </div>
-  </div>
+                </form>
+            </div>
+        </div>
     </div>>
 
 

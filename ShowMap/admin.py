@@ -24,8 +24,8 @@ class CategoryAdmin(admin.ModelAdmin):
 # Регистрация модели памяток в админке
 @admin.register(TestMonument)
 class MonumentAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "longtitude", "latitude", "image", "category")
-    list_display_links = ["title"]
+    list_display = ("id", "title", "longtitude", "latitude", "category")
+    list_display_links = ["title",  "id"]
     list_filter = ["category"]
     search_fields = ["title", "id"]
     save_on_top = True
