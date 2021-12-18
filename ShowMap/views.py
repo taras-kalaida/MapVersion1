@@ -1,5 +1,5 @@
 from django.views import View
-from LastVersionDjango.views import MixinViews, MixinNeededView
+from LastVersionDjango.views import MixinViews
 from .models import Monument, Category, TestMonument, UserMonument
 from django.core import serializers
 from django.shortcuts import redirect, get_object_or_404
