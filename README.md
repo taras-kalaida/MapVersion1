@@ -85,13 +85,13 @@
 # Приклад роботи 
 
 ## Местоположение с областью видимости и маркерами
-<img src="img/1.png">
+<img src="static/Git_img/1.png">
 
 ## Если маркер не находиться в области видимости 
-<img src="img/2.png">
+<img src="static/Git_img/2.png">
 
 ## Содержание маркера
-<img src="img/3.png" >
+<img src="static/Git_img/3.png" >
 
 ## Отобразить все доступные маркеры
-<img src="img/4.png" >
+<img src="static/Git_img/4.png" >

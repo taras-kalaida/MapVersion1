@@ -13,7 +13,6 @@ class ShowMap(View):
     context = {"path": "css/map.css", "title": "Map", "categories": Category.objects.all(), "data": new, }
 
     def get(self, request):
-        print(request.user.is_authenticated)
         self.context["custom_data"] = ""
         self.context['user'] = False
         if request.user.is_authenticated:

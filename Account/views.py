@@ -28,11 +28,9 @@ class ShowRegistration(View):
             new_user = sign_up.save(commit=False)
             new_user.set_password(sign_up.cleaned_data['password'])
             new_user.save()
-            print("da")
             return redirect("show_login")
 
         else:
-            print("net")
             return self.get(request)
 
 

@@ -2,13 +2,6 @@
 {% load static %}
 
 {% block all %}
-    <script>
-        var arr = '{{ data | safe }}'
-        var arr2 = '{{ custom_data|safe }}'
-        var user = {{ user }}
-
-    </script>
-
     <div class="map_position">
         <div id="map"></div>
     </div>
@@ -46,7 +39,14 @@
         </div>
     </div>>
 
+    <script>
+        var arr = '{{ data | safe }}'
+        var arr2 = '{{ custom_data|safe }}'
+        var UserIndef = "{{ user }}"
+
+    </script>
 
     <script src="{% static "js/map.js" %}"></script>
+
 
 {% endblock all %}

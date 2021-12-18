@@ -3,7 +3,7 @@ L.Circle.include({
         return this.getLatLng().distanceTo(latLng) < this.getRadius();
     }
 });
-let mark1, markArr = [], marker1, circle1, backToPoint = 0, markerC, circleC, backToPointC, allmark = 0, geoWatch = 0,
+let mark1, markArr = [],userMarkArr=[], marker1, circle1, backToPoint = 0, markerC, circleC, backToPointC, allmark = 0, geoWatch = 0,
     AddMark;
 
 function StartMap() {
@@ -63,7 +63,7 @@ function CurrentPositionOnMap(position) {
     }
 }
 
-function AddMarkerAround() {
+function AddMarkerAround(ListMark) {
 
     if (markArr) {
         for (let i of markArr) {
@@ -71,7 +71,7 @@ function AddMarkerAround() {
         }
         markArr = [];
     }
-    for (let i of JSON.parse(arr)) {
+    for (let i of JSON.parse(ListMark)) {
         let title = "" + i.fields.title;
         let lat = i.fields.latitude;
         let long = i.fields.longtitude;
@@ -125,7 +125,7 @@ function MouseMapChek() {
                 backToPointC = 1;
             }
         }
-        AddMarkerAround();
+        AddMarkerAround(arr);
     });
 
 }
@@ -158,35 +158,46 @@ function CreatNewMark() {
 
 }
 
+function SeeUserMark() {
+    for (let i of JSON.parse(arr2)) {
+        let title = "" + i.fields.title;
+        let lat1 = i.fields.latitude;
+        let long1= i.fields.longtitude;
+        let description = i.fields.description;
+        let image = "static/icon/no-image.png";
+        let wiki = i.fields.wiki;
+        let myIcon = L.icon({
+            iconUrl: `static/icon/UserIcon.svg`,
+            iconSize: [50, 95],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -76]
+        });
+
+        UserMark = L.marker([long1, lat1], {
+            icon: myIcon,
+        });
+        userMarkArr.push(UserMark);
+        UserMark.addTo(map).bindPopup(`<h1>${title}</h1><br>${description}<br>Source:<a href=${wiki}>link</a><img style='height: 200px;width: 300px' src=${image}> `)
+
+    }
+}
+function ClearUserMark(){
+        if (userMarkArr) {
+        for (let i of userMarkArr) {
+            (map.removeLayer(i))
+        }
+        userMarkArr = [];
+    }
+}
+
 function Test() {
     markerC = L.marker([50.45018113913906, 30.52439689636231]).addTo(map);
     circleC = L.circle([50.45018113913906, 30.52439689636231], {radius: 500}).addTo(map);
-    AddMarkerAround();
+    AddMarkerAround(arr);
+
 }
 
-// L.easyButton('fa-usd', function(btn, map){
-//
-//     if(allmark){
-//         allmark =0;
-//     }else{
-//         allmark=1;
-//         if(circleC){
-//                   map.removeLayer(circleC);
-//         }
-//
-//     }
-//     AddMarkerAround();
-// }).addTo(map);
-// L.easyButton('fa-map-marker', function(btn, map){
-//     if(geoWatch){
-//         geoWatch=0;
-//     }else{
-//         geoWatch=1
-//     }
-// GetPosition();
-// }).addTo(map);
 
-//icon first
 let GeoBTN = L.easyButton({
     states: [{
         stateName: 'OnGeo',
@@ -222,7 +233,7 @@ let toggle = L.easyButton({
             if (circleC) {
                 map.removeLayer(circleC);
             }
-            AddMarkerAround();
+            AddMarkerAround(arr);
             control.state('offAllMark');
         }
     }, {
@@ -231,15 +242,15 @@ let toggle = L.easyButton({
         onClick: function (control) {
             allmark = 0;
             GetPosition();
-            AddMarkerAround();
+            AddMarkerAround(arr);
             control.state('OnAllMark');
         },
         title: 'off all mark on map'
     }]
 });
 toggle.addTo(map);
-
-let creatNewMark = L.easyButton({
+if(UserIndef == "True"){
+    let creatNewMark = L.easyButton({
     states: [{
         stateName: 'creatNewMark',
         icon: '<span>Add',
@@ -250,6 +261,31 @@ let creatNewMark = L.easyButton({
     }]
 });
 creatNewMark.addTo(map);
+
+
+let seeUserMark = L.easyButton({
+    states: [{
+        stateName: 'seeUserMark',
+        icon: '<span>UserMark',
+        title: 'seeUserMark',
+        onClick: function (control) {
+            SeeUserMark();
+            control.state('offUserMark');
+        }
+    }, {
+        icon: '<span>OffUserMark',
+        stateName: 'offUserMark',
+        onClick: function (control) {
+            ClearUserMark();
+            control.state('seeUserMark');
+        },
+        title: 'offUserMark'
+    }]
+});
+seeUserMark.addTo(map);
+
+}
+
 
 MouseMapChek();
 Test()
