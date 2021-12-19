@@ -2,13 +2,6 @@
 {% load static %}
 
 {% block all %}
-    <script>
-        var arr = '{{ data | safe }}'
-        var arr2 = '{{ custom_data|safe }}'
-        var user = {{ user }}
-
-    </script>
-
     <div class="map_position">
         <div id="map"></div>
     </div>
@@ -32,21 +25,28 @@
 
                     <div class="upload_box">
                         <p><label>Выберите категорию:</label>
-                            <select name="test_category" id="category" style="margin-right: 60px;" size="1" class="db">
+                            <select name="test_category" id="category" size="1" class="db">
                                 <option value="Museum">Музей</option>
                                 <option value="University">Университет</option>
                                 <option value="Monument">Монумент</option>
                                 <option value="Library">Библиотека</option>
                             </select></p>
                     </div>
-                    <input type="submit" value="Добавить" class="submit" onclick=NewMarker()>
+                    <input type="submit" value="Добавить" style="margin-top: 10px" class="submit" onclick=NewMarker()>
 
                 </form>
             </div>
         </div>
     </div>>
 
+    <script>
+        var arr = '{{ data | safe }}'
+        var arr2 = '{{ custom_data|safe }}'
+        var UserIndef = "{{ user }}"
+
+    </script>
 
     <script src="{% static "js/map.js" %}"></script>
+
 
 {% endblock all %}

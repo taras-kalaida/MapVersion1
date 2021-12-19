@@ -19,19 +19,6 @@
                             <p class="nav_p">About</p>
                         </a>
                     </li>
-                    {% if not request.user.is_authenticated %}
-                        <li class="nav_item">
-                            <a href="{% url "show_login" %}" class="nav_a">
-                                <p class="nav_p">Вход</p>
-                            </a>
-                        </li>
-                    {% else %}
-                         <li class="nav_item">
-                            <a href="{% url "logout" %}" class="nav_a">
-                                <p class="nav_p">Выход</p>
-                            </a>
-                        </li>
-                    {% endif %}
                 </ul>
             </nav>
             {% if categories != None %}
@@ -52,6 +39,20 @@
                     <a href="{% url "show_map" %}" class="logo_a">MapHELP!</a>
                 </h1>
             </logo>
+
+            {% if not request.user.is_authenticated %}
+                <li class="nav_item" style="display: block; margin-left: 35px">
+                    <a href="{% url "show_login" %}" class="nav_a">
+                        <p class="nav_p">Вход</p>
+                    </a>
+                </li>
+            {% else %}
+                 <li class="nav_item"  style="display: block; margin-left: 35px">
+                    <a href="{% url "logout" %}" class="nav_a">
+                        <p class="nav_p">Выход</p>
+                    </a>
+                </li>
+            {% endif %}
 
         </div>
     </div>
