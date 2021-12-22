@@ -1,0 +1,71 @@
+.header_content {
+    margin-left: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#registrarion_box {
+    margin-top: 5% ;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    background-color: #E9EFF6;
+    border-radius: 30px;
+    height: 60px;
+    width: 100%;
+    margin-bottom:15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+.input_line {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+}
+
+
+.line_text {
+    color: black;
+    display: block;
+    font-size: 20px;
+    transition:200ms color;
+    font-family:'Roboto', sans-serif;
+    margin-bottom: 12px;
+}
+
+#registrarion_box button{
+    display: block;
+    background-color: #E9EFF6;
+    height: 40px;
+    width: 170px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 38%
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #D4D4D4 inset !important;
+}
+
+
+#reg_title {
+    margin-top: 10%;
+    margin-bottom: 2%;
+    color: black;
+    display: block;
+    font-size: 30px;
+    transition:200ms color;
+    font-family:'Roboto', sans-serif;
+    margin-left: 30px;
+}

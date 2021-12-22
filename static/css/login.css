@@ -1,0 +1,83 @@
+.header_content {
+    margin-left: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#login_title{
+    margin-left: 30px;
+    position: absolute;
+    top:25%;
+    color: black;
+    display: block;
+    font-size: 30px;
+    transition:200ms color;
+    font-family:'Roboto', sans-serif;
+}
+
+.login_reg {
+    display: block;
+    border-radius: 30px;
+    height: 40px;
+    margin-left: 40px;
+}
+
+.login_box button{
+    display: block;
+    background-color: #E9EFF6;
+    height: 40px;
+    width: 140px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 198px;
+    margin-bottom: 15px;
+}
+
+.login_box{
+    margin-top: 5% ;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+}
+
+.line_text {
+    color: black;
+    display: block;
+    font-size: 20px;
+    transition:200ms color;
+    font-family:'Roboto', sans-serif;
+    margin-bottom: 12px;
+}
+
+form{
+    margin-top: 200px;
+}
+input{
+    background-color: #E9EFF6;
+    border-radius: 30px;
+    height: 60px;
+    width: 100%;
+    margin-bottom:15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px #D4D4D4 inset !important;
+}
+
+

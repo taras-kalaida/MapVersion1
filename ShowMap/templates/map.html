@@ -1,17 +1,52 @@
 {% extends "index.html" %}
-
 {% load static %}
-{% block all %}
 
-    <script >
-        var arr ='{{ data | safe }}'
+{% block all %}
+    <div class="map_position">
+        <div id="map"></div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="form_content">
+                <h2>Добавить свою достопримечательность</h2>
+                <form action="{% url "show_map" %}" method="post" class="_form">
+                    {% csrf_token %}
+
+                    <input type="text" placeholder="Название" class="form_text" name="title">
+                    <textarea placeholder="Описание" id="description"></textarea>
+                    <input type="url" placeholder="Wiki" class="form_text" name="wiki">
+                    <input type="number" placeholder="Долгота" class="form_text dolgota" name="longtitude"
+                           step="0.000000000000001">
+                    <input type="number" placeholder="Широта" class="form_text shirota" name="latitude"
+                           step="0.000000000000001">
+
+                    <div class="upload_box">
+                        <p><label>Выберите категорию:</label>
+                            <select name="test_category" id="category" size="1" class="db">
+                                <option value="Museum">Музей</option>
+                                <option value="University">Университет</option>
+                                <option value="Monument">Монумент</option>
+                                <option value="Library">Библиотека</option>
+                            </select></p>
+                    </div>
+                    <input type="submit" value="Добавить" style="margin-top: 10px" class="submit" onclick=NewMarker()>
+
+                </form>
+            </div>
+        </div>
+    </div>>
+
+    <script>
+        var arr = '{{ data | safe }}'
+        var arr2 = '{{ custom_data|safe }}'
+        var UserIndef = "{{ user }}"
+
     </script>
 
-        <div class="map_position">
-            <div id="map"></div>
-        </div>
-
-
     <script src="{% static "js/map.js" %}"></script>
+
 
 {% endblock all %}
