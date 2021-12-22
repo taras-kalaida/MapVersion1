@@ -21,7 +21,7 @@ class CategoryAdmin(admin.ModelAdmin):
     save_on_top = True
 
 
-# Регистрация модели памяток в админке
+# Регистрация модели памяток юзера в админке
 @admin.register(TestMonument)
 class MonumentAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "longtitude", "latitude", "category")
@@ -30,6 +30,7 @@ class MonumentAdmin(admin.ModelAdmin):
     search_fields = ["title", "id"]
     save_on_top = True
 
+# Регистрация модели корзины памяток юзера в админке
 @admin.register(UserMonument)
 class MonumentAdmin(admin.ModelAdmin):
     list_display = ("id",)

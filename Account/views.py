@@ -8,10 +8,12 @@ from django.contrib.auth.decorators import user_passes_test
 from django.utils.decorators import method_decorator
 
 
+# Проверка на аутентификацию
 def authentication(user):
     return not user.is_authenticated
 
 
+# Отображение страницы регистрации
 class ShowRegistration(View):
     template = "registration.html"
 
@@ -34,6 +36,7 @@ class ShowRegistration(View):
             return self.get(request)
 
 
+# Отображение страницы логина
 class ShowLogin(View):
     template = "login.html"
 
@@ -56,6 +59,7 @@ class ShowLogin(View):
             return self.get(request)
 
 
+# Выход
 def logout(request):
     if request.user.is_authenticated:
         end(request)

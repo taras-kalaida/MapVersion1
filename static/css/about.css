@@ -1,3 +1,9 @@
+.header_content {
+    margin-left: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+
 body{
     background: rgb(212,212,212);
 }

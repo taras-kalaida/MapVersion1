@@ -1,17 +1,32 @@
 {% extends "index.html" %}
 {% block all %}
-      <a href="{% url "show_registration" %}" class="nav_a">
-        <p class="nav_p">Регистрация</p>
-    </a>
-    <a href="{% url "show_login" %}" class="nav_a">
-        <p class="nav_p">Логин</p>
-    </a>
-    <form action="{% url "show_registration" %}" method="post" id="login">
+    <div id="registrarion_box">
+        <div id="reg_title">Регистрация</div>
+        <form action="{% url "show_registration" %}" method="post" id="login">
         {% csrf_token %}
 
-        {{ sign_up.username }}
-        {{ sign_up.password }}
-        {{ sign_up.password2 }}
-        <button>Отправить</button>
-    </form>
+            <div class="input_line">
+                <div class="line_text" style="display: inline-block;">Логин:</div>
+                {{ sign_up.username }}
+
+            </div>
+
+            <div class="input_line">
+                <div class="line_text" style="display: inline-block; margin-left: -20px;">Пароль:</div>
+                {{ sign_up.password }}
+
+            </div>
+
+            <div class="input_line" style="position: relative">
+                <div class="line_text" style="margin-left: -115px;display: inline-block;text-align: right; padding-right: -30px">
+                    Подтвердите пароль:</div>
+                {{ sign_up.password2 }}
+
+            </div>
+
+        <button>Создать аккаунт</button>
+        </form>
+
+    </div>
+
 {% endblock all %}
