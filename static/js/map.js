@@ -285,7 +285,32 @@ creatNewMark.addTo(map);
 }
 }
 
+
+
 const map = StartMap();
 MapBottom();
 MouseMapChek();
 Test()
+
+const rout_format = L.Routing
+
+const element = document.querySelector(".wayBox")
+
+rout_format.control({
+  waypoints: [
+    L.latLng(50.45018113913906, 30.52439689636231),
+    L.latLng(50.47018113913906, 30.53439689636231)
+  ],
+    language:'ru',
+    lineOptions: {
+      styles: [{color: 'red', opacity: 1, weight: 5}]
+   },
+   // show: false,
+   draggableWaypoints : false,
+   collapsible: true,
+   collapseBtnClass: 'leaflet-routing-collapse-btn',
+   addWaypoints : false,
+   itineraryClassName:'wayBox'
+}).addTo(map);
+
+
