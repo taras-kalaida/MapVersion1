@@ -4,6 +4,7 @@
     width: 1000px;
     height: 600px;
     position: relative;
+    color:black;
     z-index: 0}
 .map_position {
     margin-bottom: 4%;
@@ -195,4 +196,7 @@ input[type=file]{
 }
 .wayBox {
     display: none;
+}
+.leaflet-routing-container {
+    color:black;
 }

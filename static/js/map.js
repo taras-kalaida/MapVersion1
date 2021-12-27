@@ -1,5 +1,6 @@
 let Marker_BD, All_Marker_BD = [], User_All_Marker_BD = [], Current_Position_Marker, Current_Position_Circle,
-    End_Watch_Position = 0, Click_Marker, Click_Circle, End_Watch_PositionC, Watch_all_mark = 0, geoWatch = 0;
+    End_Watch_Position = 0, Click_Marker, Click_Circle, End_Watch_PositionC, Watch_all_mark = 0, geoWatch = 0,result,
+    Routlng,Routlat, route;
 
 
 L.Circle.include({
@@ -90,14 +91,19 @@ AddMarkerAround = (ListMark) => {
         Marker_BD = L.marker([lat, long], {
             icon: myIcon,
         });
+        Marker_BD.on({
+            click: function (e) {
+            Routlng=long;
+            Routlat=lat;
+        }});
         All_Marker_BD.push(Marker_BD)
         if (Watch_all_mark) {
             result = 'inside';
         } else {
-            var result = (Click_Circle.contains(Marker_BD.getLatLng())) ? 'inside' : 'outside';
+            result = (Click_Circle.contains(Marker_BD.getLatLng())) ? 'inside' : 'outside';
         }
         if (result == 'inside') {
-            Marker_BD.addTo(map).bindPopup(`<h1>${title}</h1><br>${description}<br>Source:<a href=${wiki}>link</a><img style='height: 200px;width: 300px' src=${image}> `)
+            Marker_BD.addTo(map).bindPopup(`<h1>${title}</h1><br>${description}<br>Source:<a href=${wiki}>link</a><img style='height: 200px;width: 300px' src=${image}> <button class="trigger">Маршут</button>`)
         }
     }
 }
@@ -126,6 +132,7 @@ MouseMapChek = () => {
             }
         }
         AddMarkerAround(arr);
+
     });
 
 }
@@ -177,7 +184,7 @@ SeeUserMark = () => {
             icon: myIcon,
         });
         User_All_Marker_BD.push(UserMark);
-        UserMark.addTo(map).bindPopup(`<h1>${title}</h1><br>${description}<br>Source:<a href=${wiki}>link</a><img style='height: 200px;width: 300px' src=${image}> `)
+        UserMark.addTo(map).bindPopup(`<h1>${title}</h1><br>${description}<br>Source:<a href=${wiki}>link</a><img style='height: 200px;width: 300px' src=${image}>  `)
 
     }
 }
@@ -247,6 +254,19 @@ GeoBTN.addTo(map);
         }]
 });
 toggle.addTo(map);
+
+    const removeRouteLine = L.easyButton({
+        states: [{
+            stateName: 'removeRouteLine',
+            icon: '<img src="/static/images/footer_icons/trash.png" style="width: 25px;height: 25px;display: block;margin:2px 0 0 3px;">',
+            title: 'remove Route Line',
+            onClick: function (control) {
+                RemoveRouteLine();
+            }
+        }]
+    });
+    removeRouteLine.addTo(map);
+
 if(UserIndef == "True"){
     const creatNewMark = L.easyButton({
         states: [{
@@ -285,32 +305,47 @@ creatNewMark.addTo(map);
 }
 }
 
+RemoveRouteLine = () => {
+    route.remove(map);
+}
 
+ShowRoute = (c1,c2,c3,c4) => {
+    route = L.Routing.control({
+        waypoints: [
+            L.latLng(c3, c4),
+            L.latLng(c1, c2),
+        ],
+        language: 'ru',
+        createMarker: function() { return null; },
+        lineOptions: {
+            styles: [{color: 'red', opacity: 1, weight: 5}]
+        },
+        draggableWaypoints: false,
+        collapsible: true,
+        collapseBtnClass: 'leaflet-routing-collapse-btn',
+        addWaypoints: false,
+        itineraryClassName: 'wayBox',
+        summaryTemplate:'<h2 style="color: black; text-align: center";>{name}</h2><h3 style="color: black; text-align: center;" >{distance}, {time}</h3>',
+        showAlternatives: true,
+        altLineOptions: {
+            styles: [{color: 'red', opacity: 0.55, weight: 5}]
+        },
+    }).addTo(map);
+}
+
+$('#map').on('click', '.trigger', () => {
+    if(Click_Marker){
+    ShowRoute(Routlat,Routlng,Click_Marker.getLatLng().lat, Click_Marker.getLatLng().lng)
+    }
+    if(Current_Position_Marker){
+   alert("2")
+    }
+});
 
 const map = StartMap();
+ShowRoute();
 MapBottom();
 MouseMapChek();
 Test()
-
-const rout_format = L.Routing
-
-const element = document.querySelector(".wayBox")
-
-rout_format.control({
-  waypoints: [
-    L.latLng(50.45018113913906, 30.52439689636231),
-    L.latLng(50.47018113913906, 30.53439689636231)
-  ],
-    language:'ru',
-    lineOptions: {
-      styles: [{color: 'red', opacity: 1, weight: 5}]
-   },
-   // show: false,
-   draggableWaypoints : false,
-   collapsible: true,
-   collapseBtnClass: 'leaflet-routing-collapse-btn',
-   addWaypoints : false,
-   itineraryClassName:'wayBox'
-}).addTo(map);
-
+route.remove(map);
 
