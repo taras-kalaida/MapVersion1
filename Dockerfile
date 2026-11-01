@@ -1,6 +1,16 @@
-FROM python
+
+FROM python:3.12-slim
+
 ENV PYTHONUNBUFFERED=1
-WORKDIR /code
-COPY requirments.txt /code/
-RUN pip install -r requirments.txt
-COPY . /code/
+
+WORKDIR /app
+
+COPY requirments.txt .
+
+RUN pip install --no-cache-dir -r requirments.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
